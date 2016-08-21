@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+
+  "name": "RollSub",
+  "description": "Rollbar to Sublime Text Linker",
+  "version": "1.0",
+
+  "content_scripts": [
+    {
+      "matches": ["https://rollbar.com/*"],
+      "js": ["rollsub.js"]
+    }
+  ],
+
+  "permissions": [
+    "activeTab",
+    "https://rollbar.com/*"
+  ]
+}
