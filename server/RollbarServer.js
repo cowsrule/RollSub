@@ -41,13 +41,16 @@ app.use('/redir', function (req, res)
     var openArgs = [ '--command', 'open_file', (rootPath + filename) ];
     spawn(sublPath, openArgs);
 
-    var overlayArgs = [ '--command', 'show_overlay { \"overlay\": \"goto\", \"text\": \":' + line + '\" }' ];
-    spawn(sublPath, overlayArgs);
+    setTimeout(function ()
+    {
+        var overlayArgs = [ '--command', 'show_overlay { \"overlay\": \"goto\", \"text\": \":' + line + '\" }' ];
+        spawn(sublPath, overlayArgs);
 
-    var closeArgs = [ '--command', 'hide_overlay' ];
-    spawn(sublPath, closeArgs);
+        var closeArgs = [ '--command', 'hide_overlay' ];
+        spawn(sublPath, closeArgs);
 
-    res.status(200).send({});
+        res.status(200).send({});
+    }, 150);
 });
 
 
